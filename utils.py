@@ -32,7 +32,7 @@ def get_data_dim(dataset):
     elif dataset == "MSL":
         return 55
     elif str(dataset).startswith("machine"):
-        return 38
+        return 20
     else:
         raise ValueError("unknown dataset " + str(dataset))
 
