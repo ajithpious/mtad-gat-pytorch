@@ -14,4 +14,4 @@ output/
 *.pkl
 *.npy
 *.pt
-push.sh
+

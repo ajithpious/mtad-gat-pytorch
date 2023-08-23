@@ -71,6 +71,7 @@ class Predictor:
 
         anomaly_scores = np.zeros_like(actual)
         df_dict = {}
+        df
         for i in range(preds.shape[1]):
             df_dict[f"Forecast_{i}"] = preds[:, i]
             df_dict[f"Recon_{i}"] = recons[:, i]
@@ -89,6 +90,9 @@ class Predictor:
 
         df = pd.DataFrame(df_dict)
         anomaly_scores = np.mean(anomaly_scores, 1)
+        df['preds'] = preds
+        df['recons'] = recons
+        df['actual'] = actual
         df['A_Score_Global'] = anomaly_scores
 
         return df

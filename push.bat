@@ -1,3 +1,3 @@
 git add .
-git commit -m 'chnages'
+git commit -m 'changes'
 git push origin main
