@@ -89,16 +89,16 @@ class Infer:
 
         df = pd.DataFrame(df_dict)
         anomaly_scores = np.mean(anomaly_scores, 1)
-        df['preds'] = preds
-        df['recons'] = recons
-        df['actual'] = actual
-        df['A_Score_Global'] = anomaly_scores
+        # df['preds'] = preds
+        # df['recons'] = recons
+        # df['actual'] = actual
+        # df['A_Score_Global'] = anomaly_scores
 
-        return df
+        return preds,recons,actual
     def get_inference(self, train, test, true_anomalies, load_scores=False, save_output=True,
                           scale_scores=False):
         
-        train_pred_df = self.get_score(train)
+        # train_pred_df = self.get_score(train)
         test_pred_df = self.get_score(test)
         return test_pred_df
 

@@ -169,7 +169,9 @@ if __name__ == "__main__":
 
     label = y_test[window_size:] if y_test is not None else None
     predictor = Infer(model, window_size, n_features, prediction_args, summary_file_name=summary_file_name)
-    results = predictor.get_inference(x_train, x_test, label,
+    preds,recons,actual = predictor.get_inference(x_train, x_test, label,
                                 load_scores=args.load_scores,
                                 save_output=args.save_output)
-    print(results)
+    print(preds)
+    print(recons)
+    print(actual)
