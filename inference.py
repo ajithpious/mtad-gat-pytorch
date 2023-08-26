@@ -96,6 +96,12 @@ class Infer:
         df['A_Score_Global'] = anomaly_scores
 
         return df
+    def get_inference(self, train, test, true_anomalies, load_scores=False, save_output=True,
+                          scale_scores=False):
+        
+        train_pred_df = self.get_score(train)
+        test_pred_df = self.get_score(test)
+        return test_pred_df
 
     def predict_anomalies(self, train, test, true_anomalies, load_scores=False, save_output=True,
                           scale_scores=False):
