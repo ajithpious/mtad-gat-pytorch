@@ -71,7 +71,6 @@ class Infer:
 
         anomaly_scores = np.zeros_like(actual)
         df_dict = {}
-        df
         for i in range(preds.shape[1]):
             df_dict[f"Forecast_{i}"] = preds[:, i]
             df_dict[f"Recon_{i}"] = recons[:, i]
