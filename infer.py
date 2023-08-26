@@ -6,6 +6,12 @@ from args import get_parser, str2bool
 from utils import *
 from mtad_gat import MTAD_GAT
 from inference import Infer
+import pandas as pd
+from bokeh.io import output_notebook
+from bokeh.plotting import figure, show
+
+output_notebook()
+
 
 if __name__ == "__main__":
 
@@ -172,6 +178,25 @@ if __name__ == "__main__":
     preds,recons,actual = predictor.get_inference(x_train, x_test, label,
                                 load_scores=args.load_scores,
                                 save_output=args.save_output)
-    print(preds)
-    print(recons)
-    print(actual)
+    columns = ['scada_ws_gearbox_oil_temp', 'scada_ws_last_brake_torque',
+       'vib_frame_accel', 'scada_ws_kvar', 'scada_ws_wind_speed_average',
+       'scada_ws_manual_mode_active', 'scada_ws_last_brake_rpm',
+       'scada_ws_yaw_turn_counter', 'scada_ws_shutdown_summation',
+       'scada_ws_kw', 'prox_hub_min_prox', 'vib_gearbox_accel',
+       'scada_ws_rotor_speed', 'prox_hub_diff_prox',
+       'scada_ws_alarm_summation', 'prox_hub_max_prox', 'vib_shaft_accel',
+       'scada_ws_generator_speed', 'scada_ws_wind_speed',
+       'prox_hub_proximity']
+    
+    df_preds = pd.DataFrame(preds,columns=columns)
+    df_recons = pd.DataFrame(recons,columns=columns)
+    df_actual = pd.DataFrame(actual,columns=columns)
+
+    fig = figure(width=1200, height=600,x_axis_type='datetime')
+    fig.circle(df_preds['vib_frame_accel'],color='black',legend_label='vib_frame_accel')
+    show(fig)
+
+
+
+
+
