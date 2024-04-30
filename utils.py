@@ -32,7 +32,7 @@ def get_data_dim(dataset):
     elif dataset == "MSL":
         return 55
     elif str(dataset).startswith("machine"):
-        return 38
+        return 20
     else:
         raise ValueError("unknown dataset " + str(dataset))
 
@@ -128,6 +128,7 @@ def create_data_loaders(train_dataset, batch_size, val_split=0.1, shuffle=True, 
 
     else:
         dataset_size = len(train_dataset)
+        # print(train_dataset.shape)
         indices = list(range(dataset_size))
         split = int(np.floor(val_split * dataset_size))
         if shuffle:

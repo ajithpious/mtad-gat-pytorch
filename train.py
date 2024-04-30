@@ -50,6 +50,7 @@ if __name__ == "__main__":
     save_path = f"{output_path}/{id}"
 
     x_train = torch.from_numpy(x_train).float()
+    print(x_train[1])
     x_test = torch.from_numpy(x_test).float()
     n_features = x_train.shape[1]
 
@@ -70,7 +71,7 @@ if __name__ == "__main__":
     train_loader, val_loader, test_loader = create_data_loaders(
         train_dataset, batch_size, val_split, shuffle_dataset, test_dataset=test_dataset
     )
-
+    
     model = MTAD_GAT(
         n_features,
         window_size,

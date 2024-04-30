@@ -11,8 +11,7 @@ def load_and_save(category, filename, dataset, dataset_folder, output_folder):
     temp = np.genfromtxt(
         path.join(dataset_folder, category, filename),
         dtype=np.float32,
-        delimiter=",",
-    )
+        delimiter=",",)
     print(dataset, category, filename, temp.shape)
     with open(path.join(output_folder, dataset + "_" + category + ".pkl"), "wb") as file:
         dump(temp, file)
