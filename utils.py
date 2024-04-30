@@ -30,6 +30,8 @@ def get_data_dim(dataset):
     if dataset == "SMAP":
         return 25
     elif dataset == "MSL":
+
+        
         return 55
     elif str(dataset).startswith("machine"):
         return 20
